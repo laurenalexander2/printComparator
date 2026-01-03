@@ -4,9 +4,6 @@
 (() => {
   // 1) Configure your links here
   const LINKS = {
-    try: "https://matrixvision.streamlit.app",
-    github: "https://github.com/laurenalexander2/ai_state_detector_full",
-    docs: "#"
   };
 
   const setHref = (id, href) => {
@@ -49,4 +46,37 @@
       window.scrollTo({ top: 0, behavior: prefersReduced ? "auto" : "smooth" });
     });
   }
+
+    // 5) Examples modal gallery
+    const EXAMPLES = [
+      { src: "examples/crosses.png" },
+      { src: "examples/rembrandt.png"},
+      { src: "examples/rauschenberg.png"},
+      { src: "examples/johns.png"},
+      { src: "examples/italian.png"},
+    ];
+  
+    let idx = 0;
+const img = document.getElementById("exampleImage");
+const cap = document.getElementById("exampleCaption");
+const prev = document.querySelector(".example-arrow.left");
+const next = document.querySelector(".example-arrow.right");
+
+const renderExample = () => {
+  img.src = EXAMPLES[idx].src;
+  cap.textContent = EXAMPLES[idx].caption;
+};
+
+prev.addEventListener("click", () => {
+  idx = (idx - 1 + EXAMPLES.length) % EXAMPLES.length;
+  renderExample();
+});
+
+next.addEventListener("click", () => {
+  idx = (idx + 1) % EXAMPLES.length;
+  renderExample();
+});
+
+
+  
 })(); 

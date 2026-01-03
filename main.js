@@ -4,8 +4,8 @@
 (() => {
   // 1) Configure your links here
   const LINKS = {
-    try: "https://example.com",
-    github: "https://github.com/example",
+    try: "https://matrixvision.streamlit.app",
+    github: "https://github.com/laurenalexander2/ai_state_detector_full",
     docs: "#"
   };
 

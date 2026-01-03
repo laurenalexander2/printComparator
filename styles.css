@@ -171,18 +171,37 @@ h3{
 .wm-red{ color: var(--red); transform: translate3d(-10px, 0, 0); }
 .wm-cyan{ color: var(--cyan); transform: translate3d(10px, 0, 0); }
 
-@keyframes lockInRed{
-  0%   { transform: translate3d(-10px, 0, 0); opacity: 0.55; }
-  70%  { transform: translate3d(-1px, 0, 0); opacity: 0.18; }
-  100% { transform: translate3d(0px, 0, 0); opacity: 0; }
-}
+/* make sure base starts invisible */
+.wm-base{ opacity: 0; }
+
 @keyframes lockInCyan{
-  0%   { transform: translate3d(10px, 0, 0); opacity: 0.55; }
-  70%  { transform: translate3d(1px, 0, 0); opacity: 0.18; }
-  100% { transform: translate3d(0px, 0, 0); opacity: 0; }
+  0%   { transform: translate3d(-120px,0,0); opacity: 0; }
+  18%  { opacity: .85; }
+  70%  { transform: translate3d(0,0,0); opacity: .85; }
+  88%  { opacity: .55; }
+  100% { opacity: 0; }
 }
-.wordmark.is-animating .wm-red{ animation: lockInRed 900ms var(--ease) forwards; }
-.wordmark.is-animating .wm-cyan{ animation: lockInCyan 900ms var(--ease) forwards; }
+
+@keyframes lockInRed{
+  0%   { transform: translate3d(120px,0,0); opacity: 0; }
+  18%  { opacity: .85; }
+  70%  { transform: translate3d(0,0,0); opacity: .85; }
+  88%  { opacity: .55; }
+  100% { opacity: 0; }
+}
+
+
+@keyframes revealWhite{
+  0%   { opacity: 0; }
+  72%  { opacity: 0; }  /* stays hidden while colors overlap */
+  100% { opacity: 1; }
+}
+
+/* ensure the animations are actually assigned */
+.wordmark.is-animating .wm-cyan{ animation: lockInCyan 3000ms cubic-bezier(.2,.8,.2,1) forwards; }
+.wordmark.is-animating .wm-red { animation: lockInRed  3000ms cubic-bezier(.2,.8,.2,1) forwards; }
+.wordmark.is-animating .wm-base{ animation: revealWhite 3000ms cubic-bezier(.2,.8,.2,1) forwards; }
+
 
 /* Buttons: monochrome */
 .actions{

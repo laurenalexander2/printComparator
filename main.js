@@ -1,5 +1,5 @@
 // Print Comparator — main.js
-// Configure links, run the wordmark "alignment lock-in" animation, and reveal sections on scroll.
+// Configure links, run the wordmark “alignment lock-in” animation, and reveal sections on scroll.
 
 (() => {
   // 1) Configure your links here
@@ -15,18 +15,18 @@
   };
 
   // Apply links across the page
-  ["navTry","heroTry","introTry","howTry","techTry","footerTry"].forEach(id => setHref(id, LINKS.try));
+  ["heroTry","introTry","techTry","footerTry"].forEach(id => setHref(id, LINKS.try));
   ["heroGitHub","introGitHub","techGitHub"].forEach(id => setHref(id, LINKS.github));
   ["heroDocs","introDocs"].forEach(id => setHref(id, LINKS.docs));
 
-  // 2) Wordmark lock-in animation (Option 1)
+  // 2) Wordmark lock-in animation
   const wordmark = document.querySelector(".wordmark");
   const prefersReduced = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   if (wordmark && !prefersReduced) {
     requestAnimationFrame(() => wordmark.classList.add("is-animating"));
   }
 
-  // 3) Scroll reveal
+  // 3) Scroll reveal (float up)
   const revealEls = document.querySelectorAll(".reveal");
   if ("IntersectionObserver" in window) {
     const io = new IntersectionObserver((entries) => {
@@ -36,7 +36,7 @@
           io.unobserve(entry.target);
         }
       });
-    }, { threshold: 0.12 });
+    }, { threshold: 0.14 });
     revealEls.forEach(el => io.observe(el));
   } else {
     revealEls.forEach(el => el.classList.add("in"));

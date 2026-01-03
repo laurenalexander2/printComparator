@@ -10,209 +10,115 @@
   <meta property="og:description" content="Standardize, align, and visualize differences between two impressions from the same intaglio plate." />
   <meta property="og:type" content="website" />
 
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cpath fill='%231d1d1f' d='M14 50V14h36v36H14zm6-6h24V20H20v24z'/%3E%3C/svg%3E" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cpath fill='%23fff' d='M14 50V14h36v36H14zm6-6h24V20H20v24z'/%3E%3C/svg%3E" />
   <link rel="stylesheet" href="styles.css" />
 </head>
 
 <body>
-  <a class="skip" href="#main">Skip to content</a>
+  <a class="skip" href="#s1">Skip to content</a>
 
-  <header class="nav-wrap" role="banner">
-    <nav class="nav" aria-label="Primary">
-      <a class="brand" href="#top" aria-label="Print Comparator home">
-        <span class="brand-mark" aria-hidden="true"></span>
-        <span class="brand-name">Print Comparator</span>
-      </a>
-
-      <div class="nav-actions">
-        <a class="nav-link" href="#how">How it works</a>
-        <a class="nav-link" href="#tech">Tech</a>
-        <a class="btn btn-primary" id="navTry" href="https://example.com" target="_blank" rel="noreferrer noopener">
-          Try it out
-        </a>
-      </div>
-    </nav>
-  </header>
-
-  <main id="main">
-    <div id="top" class="anchor" aria-hidden="true"></div>
-
-    <!-- HERO -->
-    <section class="hero">
-      <div class="container">
-        <div class="hero-inner reveal">
+  <main>
+    <!-- SECTION 1: HERO -->
+    <section id="s1" class="panel is-hero reveal">
+      <div class="wrap">
+        <div class="center">
           <div class="wordmark" aria-label="Print Comparator">
             <span class="wm wm-base">Print Comparator</span>
             <span class="wm wm-red" aria-hidden="true">Print Comparator</span>
             <span class="wm wm-cyan" aria-hidden="true">Print Comparator</span>
           </div>
 
-          <p class="hero-sub">
+          <p class="subhead">
             A computer-vision tool for comparative analysis of print impressions.
           </p>
-
-          <p class="hero-lede">
-            Standardize and align two digitized impressions from the same intaglio plate,
-            then visualize differences in tone, linework, and plate condition.
-          </p>
-
-          <div class="cta">
-            <a class="btn btn-primary" id="heroTry" href="https://example.com" target="_blank" rel="noreferrer noopener">Try it out</a>
-            <a class="btn btn-secondary" id="heroGitHub" href="https://github.com/example" target="_blank" rel="noreferrer noopener">GitHub</a>
-            <a class="btn btn-ghost" href="#how">How it works</a>
-          </div>
-
-          <div class="meta">
-            <a class="meta-link" id="heroDocs" href="#" target="_blank" rel="noreferrer noopener">Documentation</a>
-            <span class="sep" aria-hidden="true">/</span>
-            <a class="meta-link" href="#tech">Tech stack</a>
-          </div>
-
-          <!-- Image placeholder: replace with a screenshot/composite when ready -->
-          <figure class="figure">
-            <div class="img-ph img-ph--hero" role="img" aria-label="Placeholder for a composite screenshot of tool outputs">
-              <div class="img-ph__label">Hero image placeholder</div>
-              <div class="img-ph__hint">Suggested: Base / Aligned / Overlay composite</div>
-            </div>
-            <figcaption class="caption">Replace with a single quiet proof image: a clean composite of outputs.</figcaption>
-          </figure>
-        </div>
-      </div>
-    </section>
-
-    <!-- INTRO -->
-    <section class="section">
-      <div class="container">
-        <div class="section-inner reveal">
-          <div class="section-head">
-            <h2>Intro</h2>
-            <div class="rule" aria-hidden="true"></div>
-          </div>
-
-          <p class="body">
+          <p class="lede">
             Compare two digitized impressions from the same intaglio plate (etching, engraving, drypoint, mezzotint, and related processes).
             The tool reduces digitization variability, registers impressions into a shared coordinate space, and produces outputs designed for interpretation.
           </p>
 
-          <div class="links">
-            <a class="text-btn" id="introTry" href="https://example.com" target="_blank" rel="noreferrer noopener">Try the tool</a>
-            <a class="text-btn" id="introGitHub" href="https://github.com/example" target="_blank" rel="noreferrer noopener">Repo</a>
-            <a class="text-btn" id="introDocs" href="#" target="_blank" rel="noreferrer noopener">Docs</a>
+          <div class="actions">
+            <a class="btn" id="heroTry" href="https://example.com" target="_blank" rel="noreferrer noopener">Try it out</a>
+            <a class="btn btn-ghost" id="heroGitHub" href="https://github.com/example" target="_blank" rel="noreferrer noopener">GitHub</a>
+            <a class="btn btn-ghost" id="heroDocs" href="#" target="_blank" rel="noreferrer noopener">Docs</a>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- HOW -->
-    <section id="how" class="section">
-      <div class="container">
-        <div class="section-inner reveal">
-          <div class="section-head">
-            <h2>How it works</h2>
-            <div class="rule" aria-hidden="true"></div>
-          </div>
-
-          <div class="grid-2">
-            <div class="block">
-              <h3>1. Preprocess for comparability</h3>
-              <p class="body">
+    <!-- SECTION 3: HOW IT WORKS -->
+    <section id="s3" class="panel reveal">
+      <div class="wrap">
+        <div class="center">
+          <h2>How it works</h2>
+          <dl class="dl">
+            <div class="row">
+              <dt>1. Preprocess for comparability</dt>
+              <dd>
                 Convert to grayscale, standardize scale, and normalize contrast to reduce exposure differences,
                 paper tone, and capture artifacts—so the comparison is driven more by print variation than digitization quirks.
-              </p>
+              </dd>
             </div>
 
-            <div class="block">
-              <h3>2. Align one impression to the other</h3>
-              <p class="body">
+            <div class="row">
+              <dt>2. Align one impression to the other</dt>
+              <dd>
                 Detect shared landmarks, estimate the transform, and warp the target impression into the base impression’s coordinate space.
                 If feature matching is weak or unstable, the alignment falls back to a gentler global method.
-              </p>
+              </dd>
             </div>
-          </div>
 
-          <div class="modes">
-            <h3>3. Visual analysis (two modes)</h3>
-
-            <div class="grid-2">
-              <div class="mode">
-                <div class="mode-top">
-                  <span class="chip">Mode 1</span>
-                  <span class="mode-title">Absolute tonal difference</span>
-                </div>
-                <p class="body">
-                  A pixel-level absolute difference map in grayscale intensity.
+            <div class="row">
+              <dt>3. Visual analysis (two modes)</dt>
+              <dd>
+                  A.Pixel-level absolute difference: Map
                   Best when changes are strictly additive (added tone, heavier inking, strengthened marks),
                   because magnitude reads cleanly.
-                </p>
-
-                <figure class="figure figure--tight">
-                  <div class="img-ph img-ph--mode" role="img" aria-label="Placeholder for tonal difference map example">
-                    <div class="img-ph__label">Mode 1 image</div>
-                    <div class="img-ph__hint">Tonal diff map example</div>
-                  </div>
-                  <figcaption class="caption">Example: absolute tonal difference.</figcaption>
-                </figure>
-              </div>
-
-              <div class="mode">
-                <div class="mode-top">
-                  <span class="chip">Mode 2</span>
-                  <span class="mode-title">Color overlay (overlaps neutralized)</span>
-                </div>
-                <p class="body">
-                  Tint each impression (red vs cyan) so regions that agree collapse toward neutral/darker values,
+              </dd>
+              <dd>
+              </dd>
+            <dd>
+                  B. Color Overlays: Tint each impression (red vs cyan) so regions that agree collapse toward neutral/darker values,
                   while differences remain strongly colored. Best for rapid scanning and localizing change—especially when differences are mixed.
-                </p>
-
-                <figure class="figure figure--tight">
-                  <div class="img-ph img-ph--mode" role="img" aria-label="Placeholder for red/cyan overlay example">
-                    <div class="img-ph__label">Mode 2 image</div>
-                    <div class="img-ph__hint">Overlay example</div>
-                  </div>
-                  <figcaption class="caption">Example: red/cyan overlay with overlap neutralization.</figcaption>
-                </figure>
-              </div>
+              </dd>
             </div>
-          </div>
 
-          <div class="block block--single">
-            <h3>4. Interactive controls</h3>
-            <p class="body">
-              Adjust thresholds and visibility, invert views, and switch comparison direction to tune sensitivity for tone versus line-level change.
-            </p>
-          </div>
-
-          <div class="cta tight">
-            <a class="btn btn-primary" id="howTry" href="https://example.com" target="_blank" rel="noreferrer noopener">Try it out</a>
-          </div>
+            <div class="row">
+              <dt>4. Interactive controls</dt>
+              <dd>
+                Browser UI: file upload, sliders/toggles, session state, and real-time visualization of aligned outputs and analysis views.
+              </dd>
+            </div>
+          </dl>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
         </div>
       </div>
     </section>
 
-    <!-- TECH -->
-    <section id="tech" class="section">
-      <div class="container">
-        <div class="section-inner reveal">
-          <div class="section-head">
-            <h2>The Tech Stack</h2>
-            <div class="rule" aria-hidden="true"></div>
-          </div>
-
-          <p class="muted body">
-            Python-based image processing with an interactive Streamlit UI. Emphasis: reliable registration + interpretable visual comparisons.
+    <!-- SECTION 4: TECH -->
+    <section id="s4" class="panel reveal">
+      <div class="wrap">
+        <div class="center">
+          <h2>The Tech Stack</h2>
+          <p class="body muted">
+            Python-based image processing with an interactive Streamlit UI.
           </p>
 
           <dl class="dl">
-            <div class="dl-row">
+            <div class="row">
               <dt>OpenCV (cv2)</dt>
               <dd>
-                Vision + geometry: preprocessing (grayscale, resize, blur, histogram equalization), feature alignment (AKAZE + BFMatcher + Lowe ratio),
+                Preprocessing (grayscale, resize, blur, histogram equalization), feature alignment (AKAZE + BFMatcher + Lowe ratio),
                 robust transform estimation (RANSAC homography), warping/registration (perspective + affine),
                 and difference representations (absdiff, thresholding, morphology, connected components, overlay composition).
               </dd>
             </div>
 
-            <div class="dl-row">
+            <div class="row">
               <dt>ECC affine fallback</dt>
               <dd>
                 When homography estimation fails validation or inputs are low-feature, ECC optimization finds a stable affine alignment
@@ -220,7 +126,7 @@
               </dd>
             </div>
 
-            <div class="dl-row">
+            <div class="row">
               <dt>NumPy</dt>
               <dd>
                 Vectorized pixel arithmetic for masks and overlays, fast threshold logic, and feature vectors derived from change masks
@@ -228,14 +134,14 @@
               </dd>
             </div>
 
-            <div class="dl-row">
+            <div class="row">
               <dt>Streamlit</dt>
               <dd>
                 Browser UI: file upload, sliders/toggles, session state, and real-time visualization of aligned outputs and analysis views.
               </dd>
             </div>
 
-            <div class="dl-row">
+            <div class="row">
               <dt>scikit-learn (KMeans, optional)</dt>
               <dd>
                 Experimental clustering of impressions using feature vectors derived from change masks to explore hypothesized grouping/state structure.
@@ -243,55 +149,27 @@
             </div>
           </dl>
 
-          <figure class="figure figure--tech">
-            <div class="img-ph img-ph--tech" role="img" aria-label="Placeholder for a minimal pipeline diagram or alignment safeguard schematic">
-              <div class="img-ph__label">Optional diagram</div>
-              <div class="img-ph__hint">Preprocess → Align → Diff → Overlay</div>
-            </div>
-            <figcaption class="caption">Optional: a minimal pipeline diagram or alignment safeguard schematic.</figcaption>
-          </figure>
 
-          <div class="grid-2 callouts">
-            <div class="callout">
-              <h3>Alignment safeguards</h3>
-              <p class="body">
-                Homographies are validated (finite values, sane determinant/scale, sufficient inliers) before warping.
-                If the transform looks unstable, the tool falls back to ECC affine alignment.
-              </p>
-            </div>
-
-            <div class="callout">
-              <h3>Line-focused alternatives</h3>
-              <p class="body">
-                Optional strategies emphasize marks over paper tone: “ink-only” differences (adaptive thresholding on dark pixels) and/or edge-based
-                comparisons (blur + Canny + XOR), with morphology and component filtering to suppress speckle.
-              </p>
-            </div>
-          </div>
-
-          <div class="cta tight">
-            <a class="btn btn-primary" id="techTry" href="https://example.com" target="_blank" rel="noreferrer noopener">Try it out</a>
-            <a class="btn btn-secondary" id="techGitHub" href="https://github.com/example" target="_blank" rel="noreferrer noopener">GitHub</a>
+          <div class="actions top-gap">
+            <a class="btn" id="techTry" href="https://example.com" target="_blank" rel="noreferrer noopener">Try it out</a>
+            <a class="btn btn-ghost" id="techGitHub" href="https://github.com/example" target="_blank" rel="noreferrer noopener">GitHub</a>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- FOOTER -->
-    <footer class="footer">
-      <div class="container">
-        <div class="footer-inner reveal">
-          <p class="thanks">Thanks for checking out my site.</p>
-          <div class="cta">
-            <a class="btn btn-primary" id="footerTry" href="https://example.com" target="_blank" rel="noreferrer noopener">Try it out</a>
+    <!-- SECTION 5: CLOSE -->
+    <section id="s5" class="panel reveal">
+      <div class="wrap">
+        <div class="center">
+          <h2>That is all</h2>
+          <br>
+          <div class="actions">
             <button class="btn btn-ghost" id="backToTop" type="button">Back to top</button>
           </div>
-          <p class="fine muted">
-            Update the “Try it out / GitHub / Docs” links at the top of <span class="mono">main.js</span>.
-          </p>
         </div>
       </div>
-    </footer>
+    </section>
   </main>
 
   <script src="main.js"></script>

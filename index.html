@@ -1,0 +1,260 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Print Comparator</title>
+  <meta name="description" content="A computer-vision tool for comparative analysis of intaglio print impressions." />
+
+  <!-- Open Graph (optional) -->
+  <meta property="og:title" content="Print Comparator" />
+  <meta property="og:description" content="Compare two impressions from the same intaglio plate with alignment + visual difference analyses." />
+  <meta property="og:type" content="website" />
+
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cpath fill='%23000' d='M14 50V14h36v36H14zm6-6h24V20H20v24z'/%3E%3C/svg%3E" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="nav-wrap" role="banner">
+    <nav class="nav" aria-label="Primary">
+      <a class="brand" href="#top" aria-label="Print Comparator home">
+        <span class="brand-dot" aria-hidden="true"></span>
+        <span class="brand-text">Print Comparator</span>
+      </a>
+
+      <div class="nav-actions">
+        <a class="nav-link" href="#tech">Tech</a>
+        <a class="nav-link" href="#how">How it works</a>
+        <a class="btn btn-primary" id="navTry" href="https://example.com" target="_blank" rel="noreferrer noopener">
+          Try it out
+        </a>
+      </div>
+    </nav>
+  </header>
+
+  <main id="main">
+    <div id="top" class="top-anchor" aria-hidden="true"></div>
+
+    <!-- HERO -->
+    <section class="section hero">
+      <div class="container">
+        <div class="hero-card reveal">
+          <div class="wordmark" aria-label="Print Comparator">
+            <span class="wm-layer wm-base">Print Comparator</span>
+            <span class="wm-layer wm-red" aria-hidden="true">Print Comparator</span>
+            <span class="wm-layer wm-cyan" aria-hidden="true">Print Comparator</span>
+          </div>
+
+          <p class="hero-subhead">
+            A computer-vision tool for comparative analysis of print impressions.
+          </p>
+
+          <p class="hero-body">
+            The Intaglio State Comparator standardizes and aligns two digitized impressions from the same plate,
+            then produces visual analyses that make differences in tone, linework, and plate condition easier to see.
+          </p>
+
+          <div class="cta-row">
+            <a class="btn btn-primary" id="heroTry" href="https://example.com" target="_blank" rel="noreferrer noopener">Try it out</a>
+            <a class="btn btn-secondary" id="heroGitHub" href="https://github.com/example" target="_blank" rel="noreferrer noopener">GitHub</a>
+            <a class="btn btn-ghost" href="#how">How it works</a>
+          </div>
+
+          <div class="link-row">
+            <a class="text-link" id="heroDocs" href="#" target="_blank" rel="noreferrer noopener">Documentation</a>
+            <span class="dot" aria-hidden="true">•</span>
+            <a class="text-link" href="#tech">Tech stack</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- INTRO -->
+    <section class="section">
+      <div class="container">
+        <div class="panel reveal">
+          <h2>Print Comparator</h2>
+          <p>
+            Compare two digitized impressions from the same intaglio plate (etching, engraving, drypoint, mezzotint, and related processes).
+            The tool reduces digitization variability, registers impressions into a shared coordinate space, and provides visual outputs designed for interpretation.
+          </p>
+
+          <div class="mini-links">
+            <a class="pill" id="introTry" href="https://example.com" target="_blank" rel="noreferrer noopener">Try the tool</a>
+            <a class="pill" id="introGitHub" href="https://github.com/example" target="_blank" rel="noreferrer noopener">Repo</a>
+            <a class="pill" id="introDocs" href="#" target="_blank" rel="noreferrer noopener">Docs</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- HOW IT WORKS -->
+    <section id="how" class="section">
+      <div class="container">
+        <div class="panel reveal">
+          <h2>How it works</h2>
+
+          <ol class="steps">
+            <li>
+              <h3>Preprocess for comparability</h3>
+              <p>
+                Convert to grayscale, standardize scale, and normalize contrast to reduce exposure differences,
+                paper tone, and capture artifacts—so the comparison is driven more by print variation than digitization quirks.
+              </p>
+            </li>
+
+            <li>
+              <h3>Align one impression to the other</h3>
+              <p>
+                Detect shared landmarks, estimate the transform, and warp the target impression into the base impression’s coordinate space.
+                If feature matching is weak or unstable, the alignment falls back to a gentler global method.
+              </p>
+            </li>
+
+            <li class="modes">
+              <h3>Visual analysis (two modes)</h3>
+
+              <div class="mode-grid">
+                <div class="mode">
+                  <div class="mode-head">
+                    <span class="mode-chip">Mode 1</span>
+                    <span class="mode-title">Absolute tonal difference</span>
+                  </div>
+                  <p>
+                    A pixel-level absolute difference map in grayscale intensity.
+                    Best when changes are strictly additive (added tone, heavier inking, strengthened marks),
+                    because magnitude reads cleanly.
+                  </p>
+                </div>
+
+                <div class="mode">
+                  <div class="mode-head">
+                    <span class="mode-chip">Mode 2</span>
+                    <span class="mode-title">Color overlay (overlaps neutralized)</span>
+                  </div>
+                  <p>
+                    Tint each impression (red vs cyan) so regions that agree collapse toward neutral/darker values,
+                    while differences remain strongly colored. Best for rapid scanning and localizing change—especially when differences are mixed.
+                  </p>
+                </div>
+              </div>
+            </li>
+
+            <li>
+              <h3>Interactive controls</h3>
+              <p>
+                Adjust thresholds and visibility, invert views, and switch comparison direction to tune sensitivity for tone versus line-level change.
+              </p>
+            </li>
+          </ol>
+
+          <div class="cta-row tight">
+            <a class="btn btn-primary" id="howTry" href="https://example.com" target="_blank" rel="noreferrer noopener">Try it out</a>
+            <a class="btn btn-ghost" href="#tech">See the tech stack</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TECH STACK -->
+    <section id="tech" class="section">
+      <div class="container">
+        <div class="panel reveal">
+          <h2>The Tech Stack</h2>
+          <p class="muted">
+            Python-based image processing with an interactive Streamlit UI. The core idea: reliable registration + interpretable visual comparisons.
+          </p>
+
+          <div class="tech">
+            <div class="tech-item">
+              <h3>OpenCV (cv2)</h3>
+              <p>
+                Preprocessing (grayscale, resize, blur, histogram equalization), feature-based alignment (AKAZE + BFMatcher + Lowe ratio test),
+                robust transform estimation (RANSAC homography), warping/registration (perspective + affine),
+                difference representations (absdiff, normalization, thresholding, morphology, connected components),
+                and overlay composition (channel merges, color conversions).
+              </p>
+            </div>
+
+            <div class="tech-item">
+              <h3>ECC affine fallback</h3>
+              <p>
+                When homography estimation fails validation or inputs are low-feature, the tool uses
+                OpenCV’s ECC optimization to find a stable affine alignment (rotation/scale/translation).
+                This avoids catastrophic “degenerate” warps and degrades gracefully.
+              </p>
+            </div>
+
+            <div class="tech-item">
+              <h3>NumPy</h3>
+              <p>
+                Vectorized pixel arithmetic for masks and overlays, fast threshold logic, feature vectors from change masks
+                (grid ratios + global ratios), and general array manipulation.
+              </p>
+            </div>
+
+            <div class="tech-item">
+              <h3>Streamlit</h3>
+              <p>
+                Browser-based UI: file upload, sliders/toggles, session state, and real-time visualization of aligned outputs and analysis views.
+              </p>
+            </div>
+
+            <div class="tech-item">
+              <h3>scikit-learn (KMeans, optional)</h3>
+              <p>
+                Experimental clustering of impressions using feature vectors derived from change masks to explore hypothesized grouping/state structure.
+              </p>
+            </div>
+          </div>
+
+          <div class="callouts">
+            <div class="callout">
+              <h3>Alignment safeguards</h3>
+              <p>
+                Homographies are validated (finite values, sane determinant/scale, sufficient inliers) before warping. If the transform looks unstable,
+                the tool falls back to ECC affine alignment.
+              </p>
+            </div>
+            <div class="callout">
+              <h3>Line-focused alternatives</h3>
+              <p>
+                Optional strategies emphasize marks over paper tone: “ink-only” differences (adaptive thresholding on dark pixels) and/or edge-based
+                comparisons (blur + Canny + XOR), with morphology and component filtering to suppress speckle.
+              </p>
+            </div>
+          </div>
+
+          <div class="cta-row tight">
+            <a class="btn btn-primary" id="techTry" href="https://example.com" target="_blank" rel="noreferrer noopener">Try it out</a>
+            <a class="btn btn-secondary" id="techGitHub" href="https://github.com/example" target="_blank" rel="noreferrer noopener">GitHub</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <section class="section footer">
+      <div class="container">
+        <div class="footer-card reveal">
+          <p class="thanks">Thanks for checking out my site.</p>
+
+          <div class="footer-actions">
+            <a class="btn btn-primary" id="footerTry" href="https://example.com" target="_blank" rel="noreferrer noopener">Try it out</a>
+            <button class="btn btn-ghost" id="backToTop" type="button">Back to top</button>
+          </div>
+
+          <p class="fineprint">
+            Tip: update the “Try it out / GitHub / Docs” links at the top of <span class="mono">main.js</span>.
+          </p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script src="main.js"></script>
+</body>
+</html>
